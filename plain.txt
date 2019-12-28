@@ -1,0 +1,12 @@
+Lattices are an extremely useful mathematical tool for cryptography.
+This talk will explain the basics of lattices in cryptography and cryptanalysis.
+
+It’s an exciting time for public-key cryptography. With the threat of practical quantum computers looming in the next few decades, it’s high time to replace the systems that can be broken by a quantum computer with ones that remain secure even if the attacker has a quantum computer. However, this is easier said than done – there is no consensus what replacements should be chosen and how secure the systems are. NIST has just started a 5-7 year competition with the target to recommend a portfolio of post-quantum encryption and signature schemes. Considerations will be speed, bandwidth, and of course security.
+
+Several of the submissions are based on lattices. At our current level of understanding, lattice-based cryptography offers relatively small public keys for both encryption and signatures, while having good performance and reasonably sized ciphertexts and signatures. While these features are nice and make us want to know more about lattices, that world can be a scary place full of discussions of Minkowski bounds, Gaussian distributions, and orthogonalized bases. We will show how these schemes work in accessible terms.
+
+Lattices have been used in cryptography for more than thirty years, but for most of that only as a tool to attack systems, starting with knapsack systems in the early 80’s. Lattices can also be used to break conventional public-key cryptosystems such as RSA or Diffie-Hellman when they are incorrectly implemented. This talk will explain these fun attacks in concrete terms, with code you can run at home.
+
+Algorithms will be presented as Python/Sage code snippets and will already be online before the talk at https://latticehacks.cr.yp.to.
+
+This is a joint presentation by Daniel J. Bernstein, Nadia Heninger, and Tanja Lange, surveying work by many people.
