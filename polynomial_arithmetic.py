@@ -2,7 +2,7 @@
 # Author: Tsai Hao-Chang
 # Date: 2019/12/29
 import numpy as np
-
+from gcd import modinv
 def random_poly(n, o, mo):
     s = [1]*o + [-1]*mo + [0]*(n - o - mo)
     s = np.array(s)
@@ -45,23 +45,6 @@ def poly_minus(x, y):
         res = np.delete(res, 0)
     return res
 
-def egcd(a, b):
-    if a == 0:
-        return (b, 0, 1)
-    else:
-        g, y, x = egcd(b % a, a)
-        return (g, x - (b // a) * y, y)
-
-def modinv(a, m):
-    if m == 2:
-        return 1
-    if a < 0:
-        a = a + m
-    g, x, _ = egcd(a, m)
-    if g != 1:
-        raise Exception('modular inverse does not exist')
-    else:
-        return x % m
 # Polynomial Multiplication
 def poly_mul(x, y):
     length = x.size + y.size - 1
