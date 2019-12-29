@@ -92,14 +92,14 @@ class NTRU:
                 f = self.pn()
                 f = poly_add(np.array([1]), 2*f)
                 f = zero_remove(f)
-                f3 = self.ext_eculid(f, 3)
+                f3 = self.ext_eculid(f, self.p)
                 fq = self.invertmodpower2(f, self.q)
                 break
             except:
                 pass
         
         g = random_poly(self.N, dg, dg-1)
-        self.pub = self.balanced_mod(3 * self.convolution(fq, g), self.q)
+        self.pub = self.balanced_mod(self.p * self.convolution(fq, g), self.q)
         self.priv = f, f3
 
     def encrypt(self, msg):
@@ -109,5 +109,5 @@ class NTRU:
     def decrypt(self, cipher):
         f,f3 = self.priv
         a = self.balanced_mod(self.convolution(cipher, f), self.q)
-        return self.balanced_mod(self.convolution(a, f3), 3)
+        return self.balanced_mod(self.convolution(a, f3), self.p)
 

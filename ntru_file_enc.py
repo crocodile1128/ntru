@@ -161,7 +161,10 @@ def decrypt_fn(fn, cipher):
     f.close()
     print (f'[+] Decryped file saved to {fn}.dec')
     
+
+#fn = 'plain.txt'
+fn = input("Input file name: ")
 cipher = NTRU(256)
-encrypt_fn('plain.txt', cipher)
-decrypt_fn('plain.txt.enc', cipher)
+encrypt_fn(fn, cipher)
+decrypt_fn(fn + '.enc', cipher)
 a = input("Press any key to close...")
